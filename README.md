@@ -47,9 +47,9 @@ pip install -r requirements.txt
 ## ANN Training
 ### Before running
 * Please installing the required package Tensorflow and Tensorlayer (using our modified version)
-* Please note your default dataset folder will be `workspace/data` [data](https://github.com/stonezwr/TSSL-BP/tree/master/Networks)
+* Please note your default dataset folder will be `workspace/data`
 
-* Select the index of GPU in the training scripts such as [k0_cnn1_cifar10.py](https://github.com/stonezwr/TSSL-BP/blob/master/main.py#L198) (0 by default)
+* Select the index of GPU in the training scripts (0 by default)
 
 ### Run the code
 for example:
