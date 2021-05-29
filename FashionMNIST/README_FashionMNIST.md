@@ -90,27 +90,22 @@ Our proposed method achieves the following performance on :
 MLP: 400-400<br>
 LeNet: 32C5-P2-64C5-P2-1024
 <figure class="half">
-    <img src="./MLP/figs/smlp_accuracy_fashionmnist.png" width="300"/>
-    <img src="./LeNet/figs/scnn_accuracy_fashionmnist.png" width="300"/>
+    <img src="./MLP/figs/smlp_accuracy_fashionmnist.png" width="500"/>
+    <img src="./LeNet/figs/scnn_accuracy_fashionmnist.png" width="500"/>
 </figure>
-
-<div style='display: none'>
-
-![avatar](./Figure_2.png)
-</div>
 
 ### Firing sparsity
 MLP and LeNet
 <figure class="half">
-    <img src="./MLP/figs/smlp_spike_neuron_fashionmnist.png" width="300"/>
-    <img src="./LeNet/figs/scnn_spike_neuron_fashionmnist.png" width="300"/>
+    <img src="./MLP/figs/smlp_spike_neuron_fashionmnist.png" width="500"/>
+    <img src="./LeNet/figs/scnn_spike_neuron_fashionmnist.png" width="500"/>
 </figure>
 
 ### Computing operations
 MLP and LeNet
 <figure class="half">
-    <img src="./MLP/figs/smlp_sop_fashionmnist.png" width="300"/>
-    <img src="./LeNet/figs/scnn_sop_fashionmnist.png" width="300"/>
+    <img src="./MLP/figs/smlp_sop_fashionmnist.png" width="500"/>
+    <img src="./LeNet/figs/scnn_sop_fashionmnist.png" width="500"/>
 </figure>
 
 ## Notes

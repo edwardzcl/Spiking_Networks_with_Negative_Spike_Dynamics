@@ -72,20 +72,21 @@ Our proposed method achieves the following performance on :
 
 ### Accuracy versus speed
 LeNet: 20C5-P2-50C5-P2-500
-![avatar](./figs/scnn_accuracy_mnist.png)
-
-<div style='display: none'>
-
-![avatar](./Figure_2.png)
-</div>
+<figure class="half">
+    <img src="./figs/scnn_accuracy_mnist.png" width="500"/>
+</figure>
 
 ### Firing sparsity
 LeNet
-![avatar](./figs/scnn_spike_neuron_mnist.png)
+<figure class="half">
+    <img src="./figs/scnn_spike_neuron_mnist.png" width="500"/>
+</figure>
 
 ### Computing operations
-MLP and LeNet
-![avatar](./figs/scnn_sop_mnist.png)
+LeNet
+<figure class="half">
+    <img src="./figs/scnn_sop_mnist.png" width="500"/>
+</figure>
 
 ## Notes
 * We do not consider the synaptic operations in the input encoding layer and the spike outputs in the last classification layer (membrane potential accumulation instead) for both original ANN counterparts and converted SNNs.<br>
