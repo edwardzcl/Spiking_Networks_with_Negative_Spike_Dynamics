@@ -42,8 +42,7 @@
 
 ## ANN Training
 ### Before running
-* Please note your default dataset folder will be ./data [data](https://github.com/stonezwr/TSSL-BP/tree/master/Networks)
-
+* Please note your default dataset folder will be `./data`
 ### Run the code
 for example:
 ```sh

@@ -41,7 +41,7 @@
 
 ## ANN Training
 ### Before running
-* Please note your default dataset folder will be ./data [data](https://github.com/stonezwr/TSSL-BP/tree/master/Networks)
+* Please note your default dataset folder will be `./data`
 
 * please modify the `resume=True`, and `learning_rate=0.0001` in the training scripts for another 100 epochs after the first 100 epochs. Totally, 200 training epoch need be performed.  
 
