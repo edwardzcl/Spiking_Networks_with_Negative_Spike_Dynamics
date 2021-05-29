@@ -167,5 +167,5 @@ plt.title("Sparsity on CIFAR10", fontproperties=roman)
   
 plt.show() 
 
-plt.savefig('scnn2_spikes_neuron_cifar10.svg',format='svg')
+plt.savefig('scnn2_spike_neuron_cifar10.svg',format='svg')
 

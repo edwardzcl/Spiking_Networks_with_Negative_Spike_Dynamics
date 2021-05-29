@@ -86,8 +86,35 @@ Our proposed method achieves the following performance on :
 | Full-precision | 32C5-P2-64C5-P2-1024 |   100   |  90.01% | N/A | N/A |
 | k=1 | 32C5-P2-64C5-P2-1024 |   100   |  89.99% | 89.99% |  17 |
 
+### Accuracy versus speed
+MLP: 400-400<br>
+LeNet: 32C5-P2-64C5-P2-1024
+<figure class="half">
+    <img src="./MLP/figs/smlp_accuracy_fashionmnist.png" width="300"/>
+    <img src="./LeNet/figs/scnn_accuracy_fashionmnist.png" width="300"/>
+</figure>
+
+<div style='display: none'>
+
+![avatar](./Figure_2.png)
+</div>
+
+### Firing sparsity
+MLP and LeNet
+<figure class="half">
+    <img src="./MLP/figs/smlp_spike_neuron_fashionmnist.png" width="300"/>
+    <img src="./LeNet/figs/scnn_spike_neuron_fashionmnist.png" width="300"/>
+</figure>
+
+### Computing operations
+MLP and LeNet
+<figure class="half">
+    <img src="./MLP/figs/smlp_sop_fashionmnist.png" width="300"/>
+    <img src="./LeNet/figs/scnn_sop_fashionmnist.png" width="300"/>
+</figure>
+
 ## Notes
-* We do not consider the synaptic operations in the input encoding layer and the spike output in the last classification layer (membrane potential accumulation ) for both original ANN counterparts and converted SNNs.<br>
+* We do not consider the synaptic operations in the input encoding layer and the spike outputs in the last classification layer (membrane potential accumulation instead) for both original ANN counterparts and converted SNNs.<br>
 * We also provide some scripts for visualization in ./figs, please move `SNN_accuracy.txt`, `sop_num.txt`, `spike_collect.txt` and `spike_num.txt` to this folder and directly run the scripts.
 
 ## More question:<br>

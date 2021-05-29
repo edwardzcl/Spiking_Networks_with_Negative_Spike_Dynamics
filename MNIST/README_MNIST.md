@@ -70,9 +70,27 @@ Our proposed method achieves the following performance on :
 | Full-precision | 20C5-P2-50C5-P2-500 |   150   |  99.28% | N/A | N/A |
 | k=1 | 20C5-P2-50C5-P2-500 |   150   |  99.32% | 99.32% |  13 |
 
+### Accuracy versus speed
+LeNet: 20C5-P2-50C5-P2-500
+![avatar](./figs/scnn_accuracy_mnist.png)
+
+<div style='display: none'>
+
+![avatar](./Figure_2.png)
+</div>
+
+### Firing sparsity
+LeNet
+![avatar](./figs/scnn_spike_neuron_mnist.png)
+
+### Computing operations
+MLP and LeNet
+![avatar](./figs/scnn_sop_mnist.png)
+
 ## Notes
-* We do not consider the synaptic operations in the input encoding layer and the spike output in the last classification layer (membrane potential accumulation ) for both original ANN counterparts and converted SNNs.<br>
+* We do not consider the synaptic operations in the input encoding layer and the spike outputs in the last classification layer (membrane potential accumulation instead) for both original ANN counterparts and converted SNNs.<br>
 * We also provide some scripts for visualization in ./figs, please move `SNN_accuracy.txt`, `sop_num.txt`, `spike_collect.txt` and `spike_num.txt` to this folder and directly run the scripts.
+
 
 ## More question:<br>
 - There might be a little difference of results for multiple training repetitions, because of the randomization. 

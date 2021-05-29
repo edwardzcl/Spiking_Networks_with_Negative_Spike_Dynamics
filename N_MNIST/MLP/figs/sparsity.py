@@ -167,4 +167,4 @@ plt.title("Sparsity on N-MNIST", fontproperties=roman)
   
 plt.show()  
 
-plt.savefig('smlp_spikes_neuron_n_mnist.svg',format='svg')
+plt.savefig('smlp_spike_neuron_n_mnist.svg',format='svg')

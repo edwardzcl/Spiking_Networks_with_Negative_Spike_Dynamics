@@ -79,17 +79,46 @@ Then, it will show the visualization results for SNN.
 ## Results
 Our proposed method achieves the following performance on :
 
-### N_MNIST
+### N-MNIST
 | Quantization Level  | Network Size  | Epochs | ANN | SNN | Time Steps |
 | ------------------ |---------------- | -------------- | ------------- | ------------- | ------------- |
-| Full-precision | 400-400 |   150   |  89.83% | N/A | N/A |
-| k=1 | 400-400 |   150   |  88.79% | 88.79% |  11 |
-| Full-precision | 32C5-P2-64C5-P2-1024 |   100   |  90.01% | N/A | N/A |
-| k=1 | 32C5-P2-64C5-P2-1024 |   100   |  89.99% | 89.99% |  17 |
+| Full-precision | 400-400 |   150   |  96.43% | N/A | N/A |
+| k=1 | 400-400 |   150   |  96.58% | 96.58% |  9 |
+| Full-precision | 12C5-P2-64C5-P2 |   150   |  97.93% | N/A | N/A |
+| k=1 | 12C5-P2-64C5-P2 |   150   |  97.86% | 97.86% |  14 |
+
+### Accuracy versus speed
+MLP: 400-400<br>
+LeNet: 32C5-P2-64C5-P2-1024
+<figure class="half">
+    <img src="./MLP/figs/smlp_accuracy_n_mnist.png" width="300"/>
+    <img src="./LeNet/figs/scnn_accuracy_n_mnist.png" width="300"/>
+</figure>
+
+<div style='display: none'>
+
+![avatar](./Figure_2.png)
+</div>
+
+### Firing sparsity
+MLP and LeNet
+<figure class="half">
+    <img src="./MLP/figs/smlp_spike_neuron_n_mnist.png" width="300"/>
+    <img src="./LeNet/figs/scnn_spike_neuron_n_mnist.png" width="300"/>
+</figure>
+
+### Computing operations
+MLP and LeNet
+<figure class="half">
+    <img src="./MLP/figs/smlp_sop_n_mnist.png" width="300"/>
+    <img src="./LeNet/figs/scnn_sop_n_mnist.png" width="300"/>
+</figure>
 
 ## Notes
-* We do not consider the synaptic operations in the input encoding layer and the spike output in the last classification layer (membrane potential accumulation ) for both original ANN counterparts and converted SNNs.<br>
+* We do not consider the synaptic operations in the input encoding layer and the spike outputs in the last classification layer (membrane potential accumulation instead) for both original ANN counterparts and converted SNNs.<br>
 * We also provide some scripts for visualization in ./figs, please move `SNN_accuracy.txt`, `sop_num.txt`, `spike_collect.txt` and `spike_num.txt` to this folder and directly run the scripts.
+
+
 
 ## More question:<br>
 - There might be a little difference of results for multiple training repetitions, because of the randomization. 

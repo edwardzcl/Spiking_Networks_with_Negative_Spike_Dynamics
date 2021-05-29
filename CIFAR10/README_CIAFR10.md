@@ -93,19 +93,34 @@ Our proposed method achieves the following performance on :
 | k=1 | 128C3-256C3-P2-512C3-P2-1024C3-512C3-P2-1024-512 | 200 |  93.35% | 93.35% | 40 |
 
 ### Accuracy versus speed
-
+CNN 1: 96C3-256C3-P2-384C3-P2-384C3-256C3-1024-1024<br>
+CNN 2: 128C3-256C3-P2-512C3-P2-1024C3-512C3-1024-512
 <figure class="half">
     <img src="./CNN_1/figs/scnn1_accuracy_cifar10.png" width="300"/>
-    <img src="./CNN_1/figs/scnn1_accuracy_cifar10.png" width="300"/>
+    <img src="./CNN_2/figs/scnn2_accuracy_cifar10.png" width="300"/>
 </figure>
-CNN 1
 
-### firing sparsity
+<div style='display: none'>
 
+![avatar](./Figure_2.png)
+</div>
 
-![avatar](./Figure_2.png) ![avatar](./Figure_2.png)
+### Firing sparsity
+CNN 1 and CNN 2
+<figure class="half">
+    <img src="./CNN_1/figs/scnn1_spikes_neuron_cifar10.png" width="300"/>
+    <img src="./CNN_2/figs/scnn2_spikes_neuron_cifar10.png" width="300"/>
+</figure>
+
+### Computing operations
+CNN 1 and CNN 2
+<figure class="half">
+    <img src="./CNN_1/figs/scnn1_sop_cifar10.png" width="300"/>
+    <img src="./CNN_2/figs/scnn2_sop_cifar10.png" width="300"/>
+</figure>
+
 ## Notes
-* We do not consider the synaptic operations in the input encoding layer and the spike output in the last classification layer (membrane potential accumulation ) for both original ANN counterparts and converted SNNs.<br>
+* We do not consider the synaptic operations in the input encoding layer and the spike outputs in the last classification layer (membrane potential accumulation instead) for both original ANN counterparts and converted SNNs.<br>
 * We also provide some scripts for visualization in ./figs, please move `SNN_accuracy.txt`, `sop_num.txt`, `spike_collect.txt` and `spike_num.txt` to this folder and directly run the scripts.
 
 ## More question:<br>
