@@ -49,7 +49,7 @@ for example:
 ```sh
 $ python training_k0_lenet_N_MNIST.py
 ```
-Then, it will generate the corresponding model files including: `checkpoint`, `model_n_mnist_advanced.ckpt.data-00000-of-00001`, `model_n_mnist_advanced.ckpt.index`, `model_n_mnist_advanced.ckpt.meta` and `model_n_mnist.npz`.
+finally, it will generate the corresponding model files including: `checkpoint`, `model_n_mnist_advanced.ckpt.data-00000-of-00001`, `model_n_mnist_advanced.ckpt.index`, `model_n_mnist_advanced.ckpt.meta` and `model_n_mnist.npz`.
 
 ## ANN Inference
 ### Run the code

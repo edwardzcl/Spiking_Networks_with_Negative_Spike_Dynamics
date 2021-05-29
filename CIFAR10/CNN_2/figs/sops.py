@@ -1,6 +1,6 @@
 # encoding=utf-8
 import matplotlib
-matplotlib.rcParams['backend'] = 'SVG'
+#matplotlib.rcParams['backend'] = 'SVG'
 import matplotlib.pyplot as plt
 from matplotlib.font_manager import FontProperties
 import numpy as np

@@ -48,7 +48,7 @@ for example:
 ```sh
 $ python training_k0_lenet_FashionMNIST.py
 ```
-Then, it will generate the corresponding model files including: `checkpoint`, `model_fashion_mnist_advanced.ckpt.data-00000-of-00001`, `model_fashion_mnist_advanced.ckpt.index`, `model_fashion_mnist_advanced.ckpt.meta` and `model_fashion_mnist.npz`.
+finally, it will generate the corresponding model files including: `checkpoint`, `model_fashion_mnist_advanced.ckpt.data-00000-of-00001`, `model_fashion_mnist_advanced.ckpt.index`, `model_fashion_mnist_advanced.ckpt.meta` and `model_fashion_mnist.npz`.
 
 ## ANN Inference
 ### Run the code

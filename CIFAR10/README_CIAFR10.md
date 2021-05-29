@@ -46,11 +46,15 @@
 * please modify the `resume=True`, and `learning_rate=0.0001` in the training scripts for another 100 epochs after the first 100 epochs. Totally, 200 training epoch need be performed.  
 
 ### Run the code
-for example:
+**for example**:
 ```sh
 $ python training_k0_cnn1_CIFAR10.py
 ```
-Then, it will generate the corresponding model files including: `checkpoint`, `model_CIFAR10_advanced.ckpt.data-00000-of-00001`, `model_CIFAR10_advanced.ckpt.index`, `model_CIFAR10_advanced.ckpt.meta` and `model_cifar_10.npz`.
+manually set `resume=True, learning_rate=0.0001` in `training_k0_cnn1_CIFAR10.py`, then run it once again:
+```sh
+$ python training_k0_cnn1_CIFAR10.py
+```
+finally, it will generate the corresponding model files including: `checkpoint`, `model_CIFAR10_advanced.ckpt.data-00000-of-00001`, `model_CIFAR10_advanced.ckpt.index`, `model_CIFAR10_advanced.ckpt.meta` and `model_cifar_10.npz`.
 
 ## ANN Inference
 ### Run the code
@@ -88,6 +92,18 @@ Our proposed method achieves the following performance on :
 | full-precision | 128C3-256C3-P2-512C3-P2-1024C3-512C3-P2-1024-512 | 200 | 93.20% | N/A | N/A |
 | k=1 | 128C3-256C3-P2-512C3-P2-1024C3-512C3-P2-1024-512 | 200 |  93.35% | 93.35% | 40 |
 
+### Accuracy versus speed
+
+<figure class="half">
+    <img src="./CNN_1/figs/scnn1_accuracy_cifar10.png" width="300"/>
+    <img src="./CNN_1/figs/scnn1_accuracy_cifar10.png" width="300"/>
+</figure>
+CNN 1
+
+### firing sparsity
+
+
+![avatar](./Figure_2.png) ![avatar](./Figure_2.png)
 ## Notes
 * We do not consider the synaptic operations in the input encoding layer and the spike output in the last classification layer (membrane potential accumulation ) for both original ANN counterparts and converted SNNs.<br>
 * We also provide some scripts for visualization in ./figs, please move `SNN_accuracy.txt`, `sop_num.txt`, `spike_collect.txt` and `spike_num.txt` to this folder and directly run the scripts.
