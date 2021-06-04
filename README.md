@@ -73,7 +73,7 @@ it will generate the corresponding log files including: `accuracy.txt`, `sop_num
 
 ## Others
 * We do not consider the synaptic operations in the input encoding layer and the spike output in the last classification layer (membrane potential accumulation ) for both original ANN counterparts and converted SNNs.<br>
-* More instructions for running the code can be found in the respective workspace folder (`MNIST/`, `FashionMNIST/`, `CIFAR10/`).
+* More instructions for running the code can be found in the respective workspace folder (`MNIST/README_MNIST.md`, `FashionMNIST/README_FashionMNIST.md`, `CIFAR10/README_CIAFR10.md`).
 
 ## Results
 Our proposed method achieves the following performance on :
