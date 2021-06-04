@@ -19,6 +19,8 @@ tf.reset_default_graph()
 
 import argparse
 parser = argparse.ArgumentParser()
+# quantization level
+# parser.add_argument('--k', type=int, default=1)
 # resume from previous checkpoint
 parser.add_argument('--resume', type=bool, default=False)
 # training or inference
@@ -37,6 +39,8 @@ batch_size = 200
 x = tf.placeholder(tf.float32, shape=[None, 28, 28, 1])
 y_ = tf.placeholder(tf.int64, shape=[None])
 
+k = args.k # quantization level, default is 1
+
 model_file_name = "./model_fashion_mnist_advanced.ckpt"
 
 def model(x, is_train=True, reuse=False):
@@ -44,24 +48,47 @@ def model(x, is_train=True, reuse=False):
     # ref: https://github.com/itayhubara/BinaryNet.tf/blob/master/models/BNN_cifar10.py
     with tf.variable_scope("binarynet", reuse=reuse):
         net = tl.layers.InputLayer(x, name='input')
-        #net = tl.layers.Conv2d(net, n_filter=12, filter_size=(5, 5), strides=(1, 1), padding='SAME', b_init=None, name='bcnn0')
+        #net = tl.layers.Conv2d(net, n_filter=32, filter_size=(5, 5), strides=(1, 1), padding='SAME', b_init=None, name='bcnn0')
         #net = tl.layers.BatchNormLayer(net, act=tf.nn.relu, is_train=is_train, name='bn0')
         #net = tl.layers.Quant_Layer(net, k)
         #net = tl.layers.SignLayer(net)
 
-        net = tl.layers.Conv2d(net, n_filter=400, filter_size=(28, 28), strides=(1, 1), padding='VALID', b_init=None, name='bcnn1')
+        net = tl.layers.Conv2d(net, n_filter=32, filter_size=(5, 5), strides=(1, 1), padding='VALID', b_init=None, name='bcnn1')
         #net = tl.layers.MaxPool2d(net, (2, 2), (2, 2), padding='SAME', name='pool2')
         net = tl.layers.BatchNormLayer(net, act=tf.nn.relu, is_train=is_train, name='bn1')
         #net = tl.layers.Quant_Layer(net, k)
         #net = tl.layers.SignLayer(net)
         #net.outputs = (net.outputs+1)/2
 
-        net1 = tl.layers.Conv2d(net, n_filter=400, filter_size=(1, 1), strides=(1, 1), padding='VALID', b_init=None, name='bcnn2')
+        net = tl.layers.Conv2d(net, n_filter=32, filter_size=(2, 2), strides=(2, 2), padding='SAME', b_init=None, name='bcnn2')
         #net = tl.layers.MaxPool2d(net, (2, 2), (2, 2), padding='SAME', name='pool1')
-        net = tl.layers.BatchNormLayer(net1, act=tf.nn.relu, is_train=is_train, name='bn2')
+        net = tl.layers.BatchNormLayer(net, act=tf.nn.relu, is_train=is_train, name='bn2')
         #net = tl.layers.Quant_Layer(net, k)
         #net = tl.layers.SignLayer(net)
         #net.outputs = (net.outputs+1)/2
+
+        net1 = tl.layers.Conv2d(net, n_filter=64, filter_size=(5, 5), strides=(1, 1), padding='VALID', b_init=None, name='bcnn3')
+        #net = tl.layers.MaxPool2d(net, (2, 2), (2, 2), padding='SAME', name='pool2')
+        net = tl.layers.BatchNormLayer(net1, act=tf.nn.relu, is_train=is_train, name='bn3')
+        #net = tl.layers.Quant_Layer(net, k)
+        #net = tl.layers.SignLayer(net)
+        
+        #net = tl.layers.SignLayer(net)
+        #net.outputs = (net.outputs+1)/2
+
+        net = tl.layers.Conv2d(net, n_filter=64, filter_size=(2, 2), strides=(2, 2), padding='SAME', b_init=None, name='bcnn4')
+        #net = tl.layers.MaxPool2d(net, (2, 2), (2, 2), padding='SAME', name='pool2')
+        net = tl.layers.BatchNormLayer(net, act=tf.nn.relu, is_train=is_train, name='bn4')
+        #net = tl.layers.Quant_Layer(net, k)
+        #net = tl.layers.SignLayer(net)
+        
+        #net = tl.layers.SignLayer(net)
+        #net.outputs = (net.outputs+1)/2
+
+        net = tl.layers.Conv2d(net, n_filter=1024, filter_size=(4, 4), strides=(1, 1), padding='VALID', b_init=None, name='fc1')
+        #net = tl.layers.MaxPool2d(net, (2, 2), (2, 2), padding='SAME', name='pool2')
+        net = tl.layers.BatchNormLayer(net, act=tf.nn.relu, is_train=is_train, name='bn5')
+        #net = tl.layers.Quant_Layer(net, k)
 
         net = tl.layers.FlattenLayer(net)
         # net = tl.layers.DropoutLayer(net, 0.8, True, is_train, name='drop1')
@@ -108,11 +135,10 @@ if args.resume:
 net_train.print_params()
 net_train.print_layers()
 
-n_epoch = 150
+n_epoch = 100
 print_freq = 1
 
 # print(sess.run(net_test.all_params)) # print real values of parameters
-
 
 if args.mode == 'training':
    for epoch in range(n_epoch):

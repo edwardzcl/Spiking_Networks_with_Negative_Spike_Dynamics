@@ -29,7 +29,7 @@
 ### Before running
 * Please note your default dataset folder will be `./data`
 ### Run the code
-for example:
+for example (training, *k=0*, LeNet, MNIST):
 ```sh
 $ python training_k0_lenet_MNIST.py
 ```
@@ -37,7 +37,7 @@ finally, it will generate the corresponding model files including: `checkpoint`,
 
 ## ANN Inference
 ### Run the code
-for example:
+for example (inference, *k=0*, LeNet, MNIST):
 ```sh
 $ python inference_k0_lenet_MNIST.py
 ```
@@ -45,20 +45,27 @@ Then, it will print the corresponding ANN test accuracy.
 
 ## SNN inference
 ### Run the code
-for example:
+for example (inference, *k=0*, spiking LeNet, MNIST):
 ```sh
 $ python inference_k0_slenet_MNIST.py
 ```
-Then, it will generate the corresponding log files including: `accuracy.txt`, `sop_num.txt`, `spike_collect.txt` and `spike_num.txt`.
+Then, it will generate the corresponding log files including: `accuracy.txt`, `sop_num.txt`, `spike_collect.txt` and `spike_num.txt` in `figs/k0/`.
 
 ## Visualization
 
-for example:
+### Accuracy versus speed
 ```sh
-$ move SNN_accuracy.txt ./figs
+$ cd figs
 $ python accuracy_speed.py
 ```
-Then, it will show the visualization results for SNN.
+### Firing sparsity
+```sh
+$ python sparsity.py
+```
+### Computing operations
+```sh
+$ python sops.py
+```
 
 ## Results
 Our proposed method achieves the following performance on :
@@ -68,6 +75,7 @@ Our proposed method achieves the following performance on :
 | ------------------ |---------------- | -------------- | ------------- | ------------- | ------------- |
 | Full-precision | 20C5-P2-50C5-P2-500 |   150   |  99.28% | N/A | N/A |
 | k=1 | 20C5-P2-50C5-P2-500 |   150   |  99.32% | 99.32% |  13 |
+||
 
 ### Accuracy versus speed
 LeNet: 20C5-P2-50C5-P2-500

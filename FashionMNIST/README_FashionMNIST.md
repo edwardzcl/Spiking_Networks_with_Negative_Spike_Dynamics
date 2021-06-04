@@ -12,81 +12,73 @@
   - `sparsity.py` - the spike sparsity script for `spiking LeNet` and `spiking MLP` with different quantization precisions on FashionMNIST.<br>
 - `LeNet` - LeNet for FashionMNIST.<br>
   - `tensorlayer` - our provided tensorlayer package.<br>
-  - `training_k0_lenet_FashionMNIST.py` - the training script for `LeNet` with quantization precision *`k=0`* on FashionMNIST.<br>
-  - `training_k1_lenet_FashionMNIST.py` - the training script for `LeNet` with quantization precision *`k=1`* on FashionMNIST..<br>
-  - `training_k2_lenet_FashionMNIST.py` - the training script for `LeNet` with quantization precision *`k=2`* on FashionMNIST.<br>
-  - `inference_k0_lenet_FashionMNIST.py` - the evaluation script for `LeNet` with quantization precision *`k=0`* on FashionMNIST.<br>
-  - `inference_k1_lenet_FashionMNIST.py` - the evaluation script for `LeNet` with quantization precision *`k=1`* on FashionMNIST.<br>
-  - `inference_k2_lenet_FashionMNIST.py` - the evaluation script for `LeNet` with quantization precision *`k=2`* on FashionMNIST.<br>
-  - `inference_k0_slenet_FashionMNIST.py` - the evaluation script for `spiking LeNet` with quantization precision *`k=0`* on FashionMNIST.<br>
-  - `inference_k1_slenet_FashionMNIST.py` - the evaluation script for `spiking LeNet` with quantization precision *`k=1`* on FashionMNIST.<br>
-  - `inference_k2_slenet_FashionMNIST.py` - the evaluation script for `spiking LeNet` with quantization precision *`k=2`* on FashionMNIST.<br>
-  - `training_full_lenet_FashionMNIST.py` - the training script for `LeNet` with `full precision (float32)` on FashionMNIST.<br>
-  - `inference_full_lenet_FashionMNIST.py` - the evaluation script for `LeNet` with `full precision (float32)` on FashionMNIST.<br>
+  - `Quant_LeNet_FashionMNIST.py` - the training script for `LeNet` with optional quantization precision *`k`* on FashionMNIST.<br>
+  - `Spiking_LeNet_FashionMNIST.py` - the evaluation script for `spiking LeNet` with optional quantization precision *`k`* on FashionMNIST.<br>
+  - `FP32_LeNet_FashionMNIST.py` - the training script for `LeNet` with `full precision (float32)` on FashionMNIST.<br>
 
 - `MLP` - MLP for FashionMNIST.<br>
   - `tensorlayer` - our provided tensorlayer package.<br>
-  - `training_k0_mlp_FashionMNIST.py` - the training script for `MLP` with quantization precision *`k=0`* on FashionMNIST.<br>
-  - `training_k1_mlp_FashionMNIST.py` - the training script for `MLP` with quantization precision *`k=1`* on FashionMNIST..<br>
-  - `training_k2_mlp_FashionMNIST.py` - the training script for `MLP` with quantization precision *`k=2`* on FashionMNIST.<br>
-  - `inference_k0_mlp_FashionMNIST.py` - the evaluation script for `MLP` with quantization precision *`k=0`* on FashionMNIST.<br>
-  - `inference_k1_mlp_FashionMNIST.py` - the evaluation script for `MLP` with quantization precision *`k=1`* on FashionMNIST.<br>
-  - `inference_k2_mlp_FashionMNIST.py` - the evaluation script for `MLP` with quantization precision *`k=2`* on FashionMNIST.<br>
-  - `inference_k0_smlp_FashionMNIST.py` - the evaluation script for `spiking MLP` with quantization precision *`k=0`* on FashionMNIST.<br>
-  - `inference_k1_smlp_FashionMNIST.py` - the evaluation script for `spiking MLP` with quantization precision *`k=1`* on FashionMNIST.<br>
-  - `inference_k2_smlp_FashionMNIST.py` - the evaluation script for `spiking MLP` with quantization precision *`k=2`* on FashionMNIST.<br>
-  - `training_full_mlp_FashionMNIST.py` - the training script for `MLP` with `full precision (float32)` on FashionMNIST.<br>
-  - `inference_full_mlp_FashionMNIST.py` - the evaluation script for `MLP` with `full precision (float32)` on FashionMNIST.<br>  
+  - `Quant_MLP_FashionMNIST.py` - the training script for `MLP` with optional quantization precision *`k`* on FashionMNIST.<br>
+  - `Spiking_MLP_FashionMNIST.py` - the evaluation script for `spiking MLP` with optional quantization precision *`k`* on FashionMNIST.<br>
+  - `FP32_MLP_FashionMNIST.py` - the training script for `MLP` with `full precision (float32)` on FashionMNIST.<br>
 
 
 ## ANN Training
-### Before running
+### **Before running**:
 * Please note your default dataset folder will be `./data`
 
-### Run the code
-for example:
+### **Run the code**:
+for example (training, *k=0*, LeNet, FashionMNIST):
 ```sh
-$ python training_k0_lenet_FashionMNIST.py
+$ python Quant_LeNet_FashionMNIST.py --k 0 --resume False --mode 'training'
 ```
 finally, it will generate the corresponding model files including: `checkpoint`, `model_fashion_mnist_advanced.ckpt.data-00000-of-00001`, `model_fashion_mnist_advanced.ckpt.index`, `model_fashion_mnist_advanced.ckpt.meta` and `model_fashion_mnist.npz`.
 
 ## ANN Inference
-### Run the code
-for example:
+### **Run the code**:
+for example ((inference, *k=0*, LeNet, FashionMNIST)):
 ```sh
-$ python inference_k0_lenet_FashionMNIST.py
+$ python Quant_LeNet_FashionMNIST.py --k 0 --resume True --mode 'inference'
 ```
 Then, it will print the corresponding ANN test accuracy.
 
 ## SNN inference
-### Run the code
-for example:
+### **Run the code**:
+for example (inference, *k=0*, spiking LeNet, FashionMNIST):
 ```sh
-$ python inference_k0_slenet_FashionMNIST.py
+$ python $ python Spiking_LeNet_FashionMNIST.py --k 0
 ```
-Then, it will generate the corresponding log files including: `accuracy.txt`, `sop_num.txt`, `spike_collect.txt` and `spike_num.txt`.
+Then, it will generate the corresponding log files including: `accuracy.txt`, `sop_num.txt`, `spike_collect.txt` and `spike_num.txt` in `figs/k0/`.
 
 ## Visualization
 
-for example:
+### **Accuracy versus speed**:
 ```sh
-$ move SNN_accuracy.txt ./figs
+$ cd figs
 $ python accuracy_speed.py
 ```
-Then, it will show the visualization results for SNN.
+### **Firing sparsity**:
+```sh
+$ python sparsity.py
+```
+### **Computing operations**:
+```sh
+$ python sops.py
+```
 
 ## Results
 Our proposed method achieves the following performance on :
 
-### FashionMNIST
+### **FashionMNIST**:
 | Quantization Level  | Network Size  | Epochs | ANN | SNN | Time Steps |
 | ------------------ |---------------- | -------------- | ------------- | ------------- | ------------- |
 | Full-precision | 400-400 |   150   |  89.83% | N/A | N/A |
 | k=1 | 400-400 |   150   |  88.79% | 88.79% |  11 |
 | Full-precision | 32C5-P2-64C5-P2-1024 |   100   |  90.01% | N/A | N/A |
 | k=1 | 32C5-P2-64C5-P2-1024 |   100   |  89.99% | 89.99% |  17 |
+||
 
-### Accuracy versus speed
+### **Accuracy versus speed**:
 MLP: 400-400<br>
 LeNet: 32C5-P2-64C5-P2-1024
 <figure class="half">
@@ -94,15 +86,13 @@ LeNet: 32C5-P2-64C5-P2-1024
     <img src="./LeNet/figs/scnn_accuracy_fashionmnist.png" width="500"/>
 </figure>
 
-### Firing sparsity
-MLP and LeNet
+### **Firing sparsity**:
 <figure class="half">
     <img src="./MLP/figs/smlp_spike_neuron_fashionmnist.png" width="500"/>
     <img src="./LeNet/figs/scnn_spike_neuron_fashionmnist.png" width="500"/>
 </figure>
 
-### Computing operations
-MLP and LeNet
+### **Computing operations**:
 <figure class="half">
     <img src="./MLP/figs/smlp_sop_fashionmnist.png" width="500"/>
     <img src="./LeNet/figs/scnn_sop_fashionmnist.png" width="500"/>

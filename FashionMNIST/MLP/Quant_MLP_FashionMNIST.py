@@ -19,13 +19,15 @@ tf.reset_default_graph()
 
 import argparse
 parser = argparse.ArgumentParser()
+# quantization level
+parser.add_argument('--k', type=int, default=1)
 # resume from previous checkpoint
 parser.add_argument('--resume', type=bool, default=False)
 # training or inference
 parser.add_argument('--mode', type=str, default='training')
 args = parser.parse_args()
 
-print(args.resume, args.mode)
+print(args.k, args.resume, args.mode)
 
 X_train, y_train, X_val, y_val, X_test, y_test = tl.files.load_fashion_mnist_dataset(shape=(-1, 28, 28, 1))
 # X_train, y_train, X_test, y_test = tl.files.load_cropped_svhn(include_extra=False)
@@ -36,6 +38,8 @@ batch_size = 200
 
 x = tf.placeholder(tf.float32, shape=[None, 28, 28, 1])
 y_ = tf.placeholder(tf.int64, shape=[None])
+
+k = args.k # quantization level, default is 1
 
 model_file_name = "./model_fashion_mnist_advanced.ckpt"
 
@@ -52,14 +56,14 @@ def model(x, is_train=True, reuse=False):
         net = tl.layers.Conv2d(net, n_filter=400, filter_size=(28, 28), strides=(1, 1), padding='VALID', b_init=None, name='bcnn1')
         #net = tl.layers.MaxPool2d(net, (2, 2), (2, 2), padding='SAME', name='pool2')
         net = tl.layers.BatchNormLayer(net, act=tf.nn.relu, is_train=is_train, name='bn1')
-        #net = tl.layers.Quant_Layer(net, k)
+        net = tl.layers.Quant_Layer(net, k)
         #net = tl.layers.SignLayer(net)
         #net.outputs = (net.outputs+1)/2
 
         net1 = tl.layers.Conv2d(net, n_filter=400, filter_size=(1, 1), strides=(1, 1), padding='VALID', b_init=None, name='bcnn2')
         #net = tl.layers.MaxPool2d(net, (2, 2), (2, 2), padding='SAME', name='pool1')
         net = tl.layers.BatchNormLayer(net1, act=tf.nn.relu, is_train=is_train, name='bn2')
-        #net = tl.layers.Quant_Layer(net, k)
+        net = tl.layers.Quant_Layer(net, k)
         #net = tl.layers.SignLayer(net)
         #net.outputs = (net.outputs+1)/2
 
