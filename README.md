@@ -8,7 +8,7 @@
 To be completed.
 
 ### **Features**:
-- This supplemental material gives a reproduction function of ANN training, testing and converted SNN inference experiments in our paper. Besides, additional results for spiking LeNet on FashionMNIST and VGG-Net (CNN 2) on CIFAR10 are provided. 
+- This supplemental material gives a reproduction function of ANN training, testing and converted SNN inference experiments in our paper. Besides, additional results for spiking MLP on FashionMNIST and VGG-Net (CNN 2) on CIFAR10 are provided. 
 
 
 ## File overview:
