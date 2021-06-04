@@ -12,57 +12,50 @@
   - `sparsity.py` - the spike sparsity script for `spiking LeNet` with different quantization precisions on MNIST<br>
 - `LeNet` - LeNet for MNIST.<br>
   - `tensorlayer` - our provided tensorlayer package.<br>
-  - `training_k0_lenet_MNIST.py` - the training script for `LeNet` with quantization precision *`k=0`* on MNIST<br>
-  - `training_k1_lenet_MNIST.py` - the training script for `LeNet` with quantization precision *`k=1`* on MNIST.<br>
-  - `training_k2_lenet_MNIST.py` - the training script for `LeNet` with quantization precision *`k=2`* on MNIST<br>
-  - `inference_k0_lenet_MNIST.py` - the evaluation script for `LeNet` with quantization precision *`k=0`* on MNIST<br>
-  - `inference_k1_lenet_MNIST.py` - the evaluation script for `LeNet` with quantization precision *`k=1`* on MNIST<br>
-  - `inference_k2_lenet_MNIST.py` - the evaluation script for `LeNet` with quantization precision *`k=2`* on MNIST<br>
-  - `inference_k0_slenet_MNIST.py` - the evaluation script for `spiking LeNet` with quantization precision *`k=0`* on MNIST<br>
-  - `inference_k1_slenet_MNIST.py` - the evaluation script for `spiking LeNet` with quantization precision *`k=1`* on MNIST<br>
-  - `inference_k2_slenet_MNIST.py` - the evaluation script for `spiking LeNet` with quantization precision *`k=2`* on MNIST<br>
-  - `training_full_lenet_MNIST.py` - the training script for `LeNet` with `full precision (float32)` on MNIST<br>
-  - `inference_full_lenet_MNIST.py` - the evaluation script for `LeNet` with `full precision (float32)` on MNIST<br>
+  - `Quant_LeNet_MNIST.py` - the training script for `LeNet` with optional quantization precision *`k`* on MNIST<br>
+  - `Spiking_LeNet_MNIST.py` - the evaluation script for `spiking LeNet` with optional quantization precision *`k`* on MNIST<br>
+  - `FP32_LeNet_MNIST.py` - the training script for `LeNet` with `full precision (float32)` on MNIST<br>
+
 
 
 ## ANN Training
-### Before running
+### **Before running**:
 * Please note your default dataset folder will be `./data`
-### Run the code
+### **Run the code**:
 for example (training, *k=0*, LeNet, MNIST):
 ```sh
-$ python training_k0_lenet_MNIST.py
+$ python Quant_LeNet_MNIST.py --k 0 --resume False --mode 'training'
 ```
 finally, it will generate the corresponding model files including: `checkpoint`, `model_MNIST_advanced.ckpt.data-00000-of-00001`, `model_MNIST_advanced.ckpt.index`, `model_MNIST_advanced.ckpt.meta` and `model_MNIST.npz`.
 
 ## ANN Inference
-### Run the code
+### **Run the code**:
 for example (inference, *k=0*, LeNet, MNIST):
 ```sh
-$ python inference_k0_lenet_MNIST.py
+$ python Quant_LeNet_MNIST.py --k 0 --resume True --mode 'inference'
 ```
 Then, it will print the corresponding ANN test accuracy.
 
 ## SNN inference
-### Run the code
+### **Run the code**:
 for example (inference, *k=0*, spiking LeNet, MNIST):
 ```sh
-$ python inference_k0_slenet_MNIST.py
+$ python $ python Spiking_LeNet_MNIST.py --k 0
 ```
 Then, it will generate the corresponding log files including: `accuracy.txt`, `sop_num.txt`, `spike_collect.txt` and `spike_num.txt` in `figs/k0/`.
 
 ## Visualization
 
-### Accuracy versus speed
+### **Accuracy versus speed**:
 ```sh
 $ cd figs
 $ python accuracy_speed.py
 ```
-### Firing sparsity
+### **Firing sparsity**:
 ```sh
 $ python sparsity.py
 ```
-### Computing operations
+### **Computing operations**:
 ```sh
 $ python sops.py
 ```
@@ -70,29 +63,27 @@ $ python sops.py
 ## Results
 Our proposed method achieves the following performance on :
 
-### MNIST
+### **MNIST**:
 | Quantization Level  | Network Size  | Epochs | ANN | SNN | Time Steps |
 | ------------------ |---------------- | -------------- | ------------- | ------------- | ------------- |
 | Full-precision | 20C5-P2-50C5-P2-500 |   150   |  99.28% | N/A | N/A |
 | k=1 | 20C5-P2-50C5-P2-500 |   150   |  99.32% | 99.32% |  13 |
 ||
 
-### Accuracy versus speed
+### **Accuracy versus speed**:
 LeNet: 20C5-P2-50C5-P2-500
 <figure class="half">
-    <img src="./figs/scnn_accuracy_mnist.png" width="500"/>
+    <img src="./figs/scnn_accuracy_mnist.png" width="50%"/>
 </figure>
 
-### Firing sparsity
-LeNet
+### **Firing sparsity**:
 <figure class="half">
-    <img src="./figs/scnn_spike_neuron_mnist.png" width="500"/>
+    <img src="./figs/scnn_spike_neuron_mnist.png" width="50%"/>
 </figure>
 
-### Computing operations
-LeNet
+### **Computing operations**:
 <figure class="half">
-    <img src="./figs/scnn_sop_mnist.png" width="500"/>
+    <img src="./figs/scnn_sop_mnist.png" width="50%"/>
 </figure>
 
 ## Notes

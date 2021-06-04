@@ -88,20 +88,17 @@ Our proposed method achieves the following performance on :
 CNN 1: 96C3-256C3-P2-384C3-P2-384C3-256C3-1024-1024<br>
 CNN 2: 128C3-256C3-P2-512C3-P2-1024C3-512C3-1024-512
 <figure class="half">
-    <img src="./CNN_1/figs/scnn1_accuracy_cifar10.png" width="500"/>
-    <img src="./CNN_2/figs/scnn2_accuracy_cifar10.png" width="500"/>
+    <img src="./CNN_1/figs/scnn1_accuracy_cifar10.png" width="50%"/><img src="./CNN_2/figs/scnn2_accuracy_cifar10.png" width="50%"/>
 </figure>
 
 ### **Firing sparsity**:
 <figure class="half">
-    <img src="./CNN_1/figs/scnn1_spikes_neuron_cifar10.png" width="500"/>
-    <img src="./CNN_2/figs/scnn2_spikes_neuron_cifar10.png" width="500"/>
+    <img src="./CNN_1/figs/scnn1_spikes_neuron_cifar10.png" width="50%"/><img src="./CNN_2/figs/scnn2_spikes_neuron_cifar10.png" width="50%"/>
 </figure>
 
 ### **Computing operations**:
 <figure class="half">
-    <img src="./CNN_1/figs/scnn1_sop_cifar10.png" width="500"/>
-    <img src="./CNN_2/figs/scnn2_sop_cifar10.png" width="500"/>
+    <img src="./CNN_1/figs/scnn1_sop_cifar10.png" width="50%"/><img src="./CNN_2/figs/scnn2_sop_cifar10.png" width="50%"/>
 </figure>
 
 ## Notes
