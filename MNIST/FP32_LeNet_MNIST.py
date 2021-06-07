@@ -13,6 +13,7 @@ import time
 import tensorflow as tf
 import tensorlayer as tl 
 import os
+import ast
 print(os.getcwd())
 
 tf.reset_default_graph()
@@ -20,7 +21,7 @@ tf.reset_default_graph()
 import argparse
 parser = argparse.ArgumentParser()
 # resume from previous checkpoint
-parser.add_argument('--resume', type=bool, default=False)
+parser.add_argument('--resume', type=ast.literal_eval, default=False)
 # training or inference
 parser.add_argument('--mode', type=str, default='training')
 args = parser.parse_args()

@@ -12,12 +12,10 @@ To be completed.
 
 
 ## File overview:
-
 - `README.md` - this readme file.<br>
 - `MNIST` - the workspace folder for `LeNet` on MNIST.<br>
 - `FashionMNIST` - the workspace folder for `LeNet`/`MLP` on FashionMNIST.<br>
 - `CIFAR10` - the workspace folder for VGG-Net (`CNN 1` and `CNN 2`) on CIFAR10.<br>
-
 
 ## Requirements
 ### **Dependencies and Libraries**:
@@ -33,7 +31,6 @@ To install requirements,
 ```setup
 pip install -r requirements.txt
 ```
-
 ### **Datasets**:
 * MNIST: [dataset](http://yann.lecun.com/exdb/mnist/), [preprocessing](https://github.com/tensorlayer/tensorlayer/blob/1.8.5/tensorlayer/files.py)
 * FashionMNIST: [dataset](https://github.com/zalandoresearch/fashion-mnist), 
@@ -53,16 +50,13 @@ for example (training, *k=0*, CNN1, CIFAR10):
 ```sh
 $ cd CIFAR10/CNN_1
 $ python Quant_CNN1_CIFAR10.py  --k 0 --resume False --learning_rate 0.001 --mode 'training'
-
 ```
-
 ## ANN Inference
 ### **Run the code**:
 for example (inference, *k=0*, CNN1, CIFAR10):
 ```sh
 $ python Quant_CNN1_CIFAR10.py --k 0 --resume True  --mode 'inference'
 ```
-
 ## SNN inference
 ### **Run the code**:
 for example (inference, *k=0*, spiking CNN1, CIFAR10):
@@ -76,7 +70,7 @@ it will generate the corresponding log files including: `accuracy.txt`, `sop_num
 * More instructions for running the code can be found in the respective workspace folder (`MNIST/README_MNIST.md`, `FashionMNIST/README_FashionMNIST.md`, `CIFAR10/README_CIAFR10.md`).
 
 ## Results
-Our proposed method achieves the following performance on :
+Our proposed methods achieve the following performances on MNIST, FashionMNIST and CIFAR10 dataset:
 
 ### **MNIST**:
 | Quantization Level  | Network Size  | Epochs | ANN | SNN | Time Steps |

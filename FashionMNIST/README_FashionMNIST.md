@@ -5,22 +5,27 @@
 ## File overview:
 
 - `README_FashionMNIST.md` - this readme file for FashionMNIST.<br>
-- `spiking_ulils.py` - the functions of spiking convolution and linear.<br>
-- `figs` - visualization folder for SNN performance.<br>
-  - `accuracy_speed.py` - the accuracy versus speed script for `spiking LeNet` and `spiking MLP` with different quantization precisions on FashionMNIST.<br>
-  - `sops.py` - the computing operations script for `spiking LeNet` and `spiking MLP` with different quantization precisions on FashionMNIST.
-  - `sparsity.py` - the spike sparsity script for `spiking LeNet` and `spiking MLP` with different quantization precisions on FashionMNIST.<br>
 - `LeNet` - LeNet for FashionMNIST.<br>
   - `tensorlayer` - our provided tensorlayer package.<br>
   - `Quant_LeNet_FashionMNIST.py` - the training script for `LeNet` with optional quantization precision *`k`* on FashionMNIST.<br>
   - `Spiking_LeNet_FashionMNIST.py` - the evaluation script for `spiking LeNet` with optional quantization precision *`k`* on FashionMNIST.<br>
   - `FP32_LeNet_FashionMNIST.py` - the training script for `LeNet` with `full precision (float32)` on FashionMNIST.<br>
+  - `spiking_ulils.py` - the functions of spiking convolution and linear.<br>
+  - `figs` - visualization folder for SNN performance.<br>
+    - `accuracy_speed.py` - the accuracy versus speed script for `spiking LeNet` with different quantization precisions on FashionMNIST.<br>
+    - `sops.py` - the computing operations script for `spiking LeNet` with different quantization precisions on FashionMNIST.
+    - `sparsity.py` - the spike sparsity script for `spiking LeNet` with different quantization precisions on FashionMNIST.<br>
 
 - `MLP` - MLP for FashionMNIST.<br>
   - `tensorlayer` - our provided tensorlayer package.<br>
   - `Quant_MLP_FashionMNIST.py` - the training script for `MLP` with optional quantization precision *`k`* on FashionMNIST.<br>
   - `Spiking_MLP_FashionMNIST.py` - the evaluation script for `spiking MLP` with optional quantization precision *`k`* on FashionMNIST.<br>
   - `FP32_MLP_FashionMNIST.py` - the training script for `MLP` with `full precision (float32)` on FashionMNIST.<br>
+  - `spiking_ulils.py` - the functions of spiking convolution and linear.<br>
+  - `figs` - visualization folder for SNN performance.<br>
+    - `accuracy_speed.py` - the accuracy versus speed script for `spiking MLP` with different quantization precisions on FashionMNIST.<br>
+    - `sops.py` - the computing operations script for `spiking MLP` with different quantization precisions on FashionMNIST.
+    - `sparsity.py` - the spike sparsity script for `spiking MLP` with different quantization precisions on FashionMNIST.<br>
 
 
 ## ANN Training
@@ -67,20 +72,13 @@ $ python sops.py
 ```
 
 ## Results
-Our proposed method achieves the following performance on :
+Our proposed spiking LeNet and MLP achieve the following performances on FashionMNIST:
 
-### **FashionMNIST**:
-| Quantization Level  | Network Size  | Epochs | ANN | SNN | Time Steps |
-| ------------------ |---------------- | -------------- | ------------- | ------------- | ------------- |
-| Full-precision | 400-400 |   150   |  89.83% | N/A | N/A |
-| k=1 | 400-400 |   150   |  88.79% | 88.79% |  11 |
-| Full-precision | 32C5-P2-64C5-P2-1024 |   100   |  90.01% | N/A | N/A |
-| k=1 | 32C5-P2-64C5-P2-1024 |   100   |  89.99% | 89.99% |  17 |
-||
-
-### **Accuracy versus speed**:
 MLP: 400-400<br>
 LeNet: 32C5-P2-64C5-P2-1024
+
+### **Accuracy versus speed**:
+
 <figure class="half">
     <img src="./MLP/figs/smlp_accuracy_fashionmnist.png" width="50%"/><img src="./LeNet/figs/scnn_accuracy_fashionmnist.png" width="50%"/>
 </figure>

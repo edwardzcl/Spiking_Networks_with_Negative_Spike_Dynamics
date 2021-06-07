@@ -61,17 +61,11 @@ $ python sops.py
 ```
 
 ## Results
-Our proposed method achieves the following performance on :
+Our proposed spiking LeNet achieves the following performances on MNIST:
 
-### **MNIST**:
-| Quantization Level  | Network Size  | Epochs | ANN | SNN | Time Steps |
-| ------------------ |---------------- | -------------- | ------------- | ------------- | ------------- |
-| Full-precision | 20C5-P2-50C5-P2-500 |   150   |  99.28% | N/A | N/A |
-| k=1 | 20C5-P2-50C5-P2-500 |   150   |  99.32% | 99.32% |  13 |
-||
+LeNet: 20C5-P2-50C5-P2-500
 
 ### **Accuracy versus speed**:
-LeNet: 20C5-P2-50C5-P2-500
 <figure class="half">
     <img src="./figs/scnn_accuracy_mnist.png" width="50%"/>
 </figure>

@@ -38,6 +38,8 @@ import time
 import tensorflow as tf
 import tensorlayer as tl
 
+import ast
+
 tf.reset_default_graph()
 
 import argparse
@@ -45,7 +47,7 @@ parser = argparse.ArgumentParser()
 # quantization level
 parser.add_argument('--k', type=int, default=1)
 # resume from previous checkpoint after 100 epochs and decay learning rate by 10 times
-parser.add_argument('--resume', type=bool, default=False)
+parser.add_argument('--resume', type=ast.literal_eval, default=False)
 # learning rate, # decay it by 10×  after 100 epochs, and set resume = True
 parser.add_argument('--learning_rate', type=float, default=0.001)
 # training or inference
