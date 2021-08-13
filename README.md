@@ -1,7 +1,7 @@
 # Towards a Lossless Conversion for Spiking Neural Networks with Negative Spike Dynamics
 
 ***
-**This code can be used as the supplemental material for the paper: "Towards a Lossless Conversion for Spiking Neural Networks with Negative Spike Dynamics". (Submitted to *35th Conference on Neural Information Processing Systems (NeurIPS 2021)*, June, 2021)** .
+**This code can be used as the supplemental material for the paper: "Towards a Lossless Conversion for Spiking Neural Networks with Negative Spike Dynamics". (Submitted to *Neurocomputing, Elsevier*, August, 2021)** .
 ***
 
 ## Citation:
@@ -99,4 +99,4 @@ Our proposed methods achieve the following performances on MNIST, FashionMNIST a
 
 ## More question:<br>
 - There might be a little difference of results for multiple training repetitions, because of the randomization. 
-- Please feel free to reach out here or email: xxx@xxx, if you have any questions or difficulties. I'm happy to help guide you.
+- Please feel free to reach out here or email: 1801111301@pku.edu.cn, if you have any questions or difficulties. I'm happy to help guide you.
