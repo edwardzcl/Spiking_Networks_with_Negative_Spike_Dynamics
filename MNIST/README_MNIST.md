@@ -38,9 +38,9 @@ Then, it will print the corresponding ANN test accuracy.
 
 ## SNN inference
 ### **Run the code**:
-for example (inference, *k=0*, spiking LeNet, MNIST):
+for example (inference, *k=0*, *noise_ratio=1.0*, spiking LeNet, MNIST):
 ```sh
-$ python $ python Spiking_LeNet_MNIST.py --k 0
+$ python $ python Spiking_LeNet_MNIST.py --k 0 --noise_ratio 1.0
 ```
 Then, it will generate the corresponding log files including: `accuracy.txt`, `sop_num.txt`, `spike_collect.txt` and `spike_num.txt` in `figs/k0/`.
 

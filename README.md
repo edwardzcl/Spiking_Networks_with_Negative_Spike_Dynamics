@@ -59,9 +59,9 @@ $ python Quant_CNN1_CIFAR10.py --k 0 --resume True  --mode 'inference'
 ```
 ## SNN inference
 ### **Run the code**:
-for example (inference, *k=0*, spiking CNN1, CIFAR10):
+for example (inference, *k=0*, *noise_ratio=1.0*, spiking CNN1, CIFAR10):
 ```sh
-$ python Spiking_CNN1_CIFAR10.py --k 0
+$ python Spiking_CNN1_CIFAR10.py --k 0 --noise_ratio 1.0
 ```
 it will generate the corresponding log files including: `accuracy.txt`, `sop_num.txt`, `spike_collect.txt` and `spike_num.txt` in `./figs/k0/`.
 

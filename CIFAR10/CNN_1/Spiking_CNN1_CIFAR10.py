@@ -11,9 +11,10 @@ import argparse
 parser = argparse.ArgumentParser()
 # quantization level
 parser.add_argument('--k', type=int, default=1)
+parser.add_argument('--noise_ratio', type=float, default=1.0)
 args = parser.parse_args()
 
-print(args.k)
+print(args.k, args.noise_ratio)
 
 class MyNet():
     def __init__(self):
@@ -71,16 +72,24 @@ class MyNet():
         self.conv5, self.bn5, self.conv6, self.bn6, self.conv7, self.bn7, self.conv8, self.bn8, self.conv9, self.bn9, \
         self.fc1]                                        
     
-    def __call__(self, X, t, mode='train'):
+    def __call__(self, X, t, noise_ratio, mode='train'):
         """
         mode: ����ѵ���׶λ��ǲ��Խ׶�. train ���� test
         """
-        return self.forward(X, t, mode)
+        return self.forward(X, t, noise_ratio, mode)
     # spiking network inference during multiple time steps
-    def forward(self, X, t, mode):
+    def forward(self, X, t, noise_ratio, mode):
         # the first layer is usually a pixel-to-spike encoding layer
 
         conv0_out, conv0_spike_collect, conv0_spike_num, conv0_sop_num = self.conv0(X, t)
+
+        # input noise
+        #mask = np.where(np.random.rand(conv0_out.shape[0], conv0_out.shape[1], conv0_out.shape[2], conv0_out.shape[3]) > noise_ratio, 1, 0) 
+
+        #conv0_out = conv0_out * mask
+
+        #mask = np.random.rand(conv0_out.shape[0], conv0_out.shape[1], conv0_out.shape[2], conv0_out.shape[3]) <= noise_ratio
+        #conv0_out = conv0_out + ((-1 * (conv0_out * 2 - 1)) * mask)
 
         conv1_out, conv1_spike_collect, conv1_spike_num, conv1_sop_num = self.conv1(conv0_out, t)
         
@@ -170,7 +179,7 @@ class MyNet():
 
 
 
-def test(sess, test_images, quant_level, test_labels, network, n_data, batch_size, time_step):
+def test(sess, test_images, quant_level, test_labels, network, n_data, batch_size, time_step, noise_ratio):
     """
     function: snn test function entrance, test_labels need use one hot encoding
     return: generate four log files: spike_num.txt, spike_collect.txt, sop_num, accuracy.txt and final SNN accuracy on test set
@@ -184,20 +193,22 @@ def test(sess, test_images, quant_level, test_labels, network, n_data, batch_siz
         # generate batch datas
         batch_datas, batch_labels = sess.run([test_images, test_labels])
         batch_datas = batch_datas.transpose(0, 3, 1, 2) * 2**quant_level
+        mask = (np.random.rand(batch_datas.shape[0], batch_datas.shape[1], batch_datas.shape[2], batch_datas.shape[3]) - 0.5) * noise_ratio
+        batch_datas = batch_datas * (1.0 + mask)
         batch_labels = np.array(batch_labels, np.int32)
         batch_labels = label_encoder(batch_labels, 10)
 
         # time step simulation
         for t in range(time_step):
             if t == 0:
-                net_out, spike_num, spike_collect, sop_num = network(batch_datas, t, mode='test')
+                net_out, spike_num, spike_collect, sop_num = network(batch_datas, t, noise_ratio=noise_ratio, mode='test')
                 predict = np.argmax(net_out, axis=1)
                 f1.write(str(spike_num) + '\n')
                 f2.write(str(spike_collect) + '\n')
                 f3.write(str(sop_num) + '\n')
                 f4.write(str(np.sum(predict == np.argmax(batch_labels, axis=1))) + '\n')
             else:
-                net_out, spike_num, spike_collect, sop_num = network(np.zeros_like(batch_datas), t, mode='test')
+                net_out, spike_num, spike_collect, sop_num = network(np.zeros_like(batch_datas), t, noise_ratio=noise_ratio, mode='test')
                 predict = np.argmax(net_out, axis=1)
                 f1.write(str(spike_num) + '\n')
                 f2.write(str(spike_collect) + '\n')
@@ -343,7 +354,7 @@ with tf.device('/cpu:0'):
     # total time steps
     time_step = 100
 
-    test_acc = test(sess, x_test_batch, args.k, y_test_batch, network=mynet, n_data=y_test.shape[0], batch_size=batch_size, time_step=time_step)
+    test_acc = test(sess, x_test_batch, args.k, y_test_batch, network=mynet, n_data=y_test.shape[0], batch_size=batch_size, time_step=time_step, noise_ratio=args.noise_ratio)
 
     print(test_acc)
 
