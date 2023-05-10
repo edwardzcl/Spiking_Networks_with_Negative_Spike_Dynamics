@@ -79,7 +79,7 @@ file_spike_collect2 = open('.\\k2\\spike_collect.txt')
 
 for line in file_spike_collect0.readlines():
     time_step = time_step + 1
-    spike_collect=int(line.strip('.0\n'))
+    spike_collect=int(line.strip('0\n').strip('.'))
     if time_step == time_steps+1:
         time_step = 1
         batch_number = batch_number + 1
@@ -94,7 +94,7 @@ spike_collect0 = spike_collect0[-1]
 
 for line in file_spike_collect1.readlines():
     time_step = time_step + 1
-    spike_collect=int(line.strip('.0\n'))
+    spike_collect=int(line.strip('0\n').strip('.'))
     if time_step == time_steps+1:
         time_step = 1
         batch_number = batch_number + 1
@@ -109,7 +109,7 @@ spike_collect1 = spike_collect1[-1]
 
 for line in file_spike_collect2.readlines():
     time_step = time_step + 1
-    spike_collect=int(line.strip('.0\n'))
+    spike_collect=int(line.strip('0\n').strip('.'))
     if time_step == time_steps+1:
         time_step = 1
         batch_number = batch_number + 1
