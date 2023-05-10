@@ -17,7 +17,7 @@ To be completed.
 
 ## Requirements
 ### **Dependencies and Libraries**:
-* python 3.8 (https://www.python.org/ or https://www.anaconda.com/)
+* python 3.5 (https://www.python.org/ or https://www.anaconda.com/)
 * tensorflow_gpu 1.2.1 (https://github.com/tensorflow)
 * tensorlayer 1.8.5 (https://github.com/tensorlayer)
 * CPU: Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
