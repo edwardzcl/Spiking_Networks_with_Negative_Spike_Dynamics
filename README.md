@@ -1,7 +1,7 @@
 # Towards a Lossless Conversion for Spiking Neural Networks with Negative Spike Dynamics
 
 ***
-**This code can be used as the supplemental material for the paper: "Towards a Lossless Conversion for Spiking Neural Networks with Negative Spike Dynamics". (Submitted to *Neurocomputing, Elsevier*, August, 2021)** .
+**This code can be used as the supplemental material for the paper: "Towards a Lossless Conversion for Spiking Neural Networks with Negative Spike Dynamics". (Submitted to *Advanced Intelligent Systems, Wiley*, July, 2023)** .
 ***
 
 ## Citation:
