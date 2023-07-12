@@ -1,7 +1,7 @@
 # Reproduction_of_other_works
 
 ***
-**This code can be used as the supplemental material for the paper: "Towards a Lossless Conversion for Spiking Neural Networks with Negative Spike Dynamics". (Submitted to *Neurocomputing, Elsevier*, July, 2023)** .
+**This code can be used as the supplemental material for the paper: "Towards a Lossless Conversion for Spiking Neural Networks with Negative Spike Dynamics". (Submitted to *Advanced Intelligent Systems, Wiley*, July, 2023)** .
 ***
 
 ## Citation:
