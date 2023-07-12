@@ -99,4 +99,4 @@ Our proposed methods achieve the following performances on MNIST, FashionMNIST a
 
 ## More question:<br>
 - There might be a little difference of results for multiple training repetitions, because of the randomization. 
-- Please feel free to reach out here or email: 1801111301@pku.edu.cn, if you have any questions or difficulties. I'm happy to help guide you.
+- Please feel free to reach out here or email: 2306394264@pku.edu.cn, if you have any questions or difficulties. I'm happy to help guide you.
