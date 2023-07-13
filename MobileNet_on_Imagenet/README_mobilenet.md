@@ -1,4 +1,4 @@
-# Reproduction_of_other_works
+# Instructions for running ImageNet experiments
 
 ***
 **This code can be used as the supplemental material for the paper: "Towards a Lossless Conversion for Spiking Neural Networks with Negative Spike Dynamics". (Submitted to *Advanced Intelligent Systems, Wiley*, July, 2023)** .
@@ -23,7 +23,7 @@ To be completed.
 * CPU: Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
 * GPU: Tesla V100
 
-**Please refer to the original mobilenet paper for more information.**
+**Please refer to the original MobileNet paper for more information.**
 
 ### **Installation**:
 To install requirements,
@@ -37,10 +37,9 @@ pip install -r requirements.txt
 
 
 ### **Run the code**:
-**Please refer to the original mobilenet paper for more information.**
-Firstly, you need to download the imagenet dataset personally.
+Firstly, you need to download the ImageNet dataset personally.
 
-Then, for example (training, *k=0*, mobilenet, imagenet):
+Then, for example (training, *k=0*, MobileNet, imagenet):
 ```sh
 $ cd MobileNet_on_Imagenet
 $ python running_distributed_mobilenet.py  --k 0 --resume False --learning_rate 0.01 --mode 'training'
@@ -53,4 +52,4 @@ Please check these results in our paper.
 
 ## More question:<br>
 - There might be a little difference of results for multiple training repetitions, because of the randomization. 
-- Please feel free to reach out here or email: 1801111301@pku.edu.cn, if you have any questions or difficulties. I'm happy to help guide you.
+- Please feel free to reach out here or email: xxx@xxx, if you have any questions or difficulties. I'm happy to help guide you.
