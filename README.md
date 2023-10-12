@@ -1,14 +1,14 @@
 # Towards a Lossless Conversion for Spiking Neural Networks with Negative Spike Dynamics
 
 ***
-**This code can be used as the supplemental material for the paper: "Towards a Lossless Conversion for Spiking Neural Networks with Negative Spike Dynamics". (Submitted to *Advanced Intelligent Systems, Wiley*, July, 2023)** .
+**This code can be used as the supplemental material for the paper: "Towards a Lossless Conversion for Spiking Neural Networks with Negative Spike Dynamics". (Accepted to *Advanced Intelligent Systems, Wiley*, October, 2023)** .
 ***
 
 ## Citation:
 To be completed.
 
 ### **Features**:
-- This supplemental material gives a reproduction function of ANN training, testing and converted SNN inference experiments in our paper. Besides, additional results for spiking MLP on FashionMNIST and VGG-Net (CNN 2) on CIFAR10 are provided. 
+- This supplemental material gives a reproduction function of ANN training, testing and converted SNN inference experiments in our paper. Besides, additional results for spiking MLP on FashionMNIST dataset and VGG-Net (CNN 2) on CIFAR10 dataset are provided. 
 
 
 ## File overview:
